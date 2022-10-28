@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: jboss-crud-simulation
+  name: jboss-crud-simulation-monitor
+  namespace: granulate
+spec:
+  endpoints:
+  - interval: 30s
+    port: web
+    scheme: http
+    path: '/q/metrics'
+  selector:
+    matchLabels:
+      app: jboss-crud-simulation

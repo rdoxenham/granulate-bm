@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: quarkus-crud-simulation
+  name: quarkus-crud-simulation
+spec:
+  ports:
+  - name: web
+    port: 9270
+    protocol: TCP
+    targetPort: 9270
+  selector:
+    deployment: quarkus-crud-simulation
+  type: ClusterIP
